@@ -54,21 +54,21 @@ class _DinnerSectionState extends State<DinnerSection> {
     final now = DateTime.now();
     final hour = now.hour;
 
-    if (hour >= 5 && hour < 8) {
+    if (hour >= 6 && hour < 8) {
       return {'type': 'breakfast', 'name': '조식', 'isOpen': true};
-    } else if (hour >= 9 && hour < 12) {
+    } else if (hour >= 10 && hour < 12) {
       return {'type': '중식', 'name': '중식', 'isOpen': true};
-    } else if (hour >= 15 && hour < 18) {
+    } else if (hour >= 16 && hour < 18) {
       return {'type': 'dinner', 'name': '석식', 'isOpen': true};
     }
 
     String nextMeal;
     if (hour < 5) {
-      nextMeal = "조식(05~07시)";
+      nextMeal = "조식(06~07시)";
     } else if (hour < 9) {
-      nextMeal = "중식(09~11시)";
+      nextMeal = "중식(10~11시)";
     } else if (hour < 15) {
-      nextMeal = "석식(15~17시)";
+      nextMeal = "석식(16~17시)";
     } else {
       nextMeal = "내일 조식(05~07시)";
     }
@@ -543,7 +543,7 @@ class HomePage extends StatelessWidget {
                       screenSize: screenSize,
                       onTap: () async {
                         // 테스트용 번호로 변경했습니다.
-                        final Uri url = Uri.parse('tel:01023275375');
+                        final Uri url = Uri.parse('tel:119');
                         if (await canLaunchUrl(url)) {
                           await launchUrl(url);
                         } else {
