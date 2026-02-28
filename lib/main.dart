@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
-
-void main() {
+import 'package:ourhouse2/views/LandingPage.dart';
+import 'package:ourhouse2/views/login_page.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+    url: 'https://guccfiyxejkowvqsyubb.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd1Y2NmaXl4ZWprb3d2cXN5dWJiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIwMTc5NDIsImV4cCI6MjA4NzU5Mzk0Mn0.7HT0ZXGb185W1VrDqGrWfgXl0q4cuWFWI14oHeNSsqk',
+  );
   runApp(const MyApp());
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -10,93 +19,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text("슬기로운 하숙 생활"),
-            centerTitle: true
-        ),
-          body: Column(
-            children: [
-              Row(
-                children: [
-                  Row(
-                    children: [
-                      SizedBox(
-                        width:200,height: 100
-                      )
-                    ],
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  Column(
-                    children: [
-                      SizedBox(
-                        width:200, height: 200,
-                        child: Center(
-                            child: Image.asset("assets/dinner.jpg")
-                        )
-
-                      ),
-                      SizedBox(
-                          child: Text("식사")
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    width:20
-                  ),
-                  Column(
-                    children: [
-                      SizedBox(
-                        width:180, height: 200,
-                        child: Center(
-                            child: Image.asset("assets/washclothes.jpg")
-                        )
-                      ),
-                      SizedBox(
-                        child: Text("세탁기 사용")
-                      )
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(
-                  width: 50, height: 110
-              ),
-              Row(
-                children: [
-                  Column(
-                    children: [
-                      SizedBox(
-                        width: 200, height: 200,
-                        child: Center(
-                          child: Image.asset("assets/siren.jpg")
-                        )
-                      ),
-                      Text("비상호출")
-                    ],
-                  ),
-                  SizedBox(
-                    width:30
-                  ),
-                  Column(
-                    children: [
-                      SizedBox(
-                        width: 170, height: 200,
-                        child: Center(
-                          child: Text("건의")
-                        )
-                      )
-                    ],
-                  )
-                ],
-              )
-            ],
-          )
-        )
+        home: const LandingPage(),
     );
   }
 }
+
+
 
